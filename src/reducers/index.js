@@ -1,5 +1,5 @@
  import {ADD_MOVIES,ADD_TO_FAVOURITIES,REMOVE_FROM_FAVOURITIES,SHOW_FAVOURITIE} from '../actions';
-
+ import {combineReducers} from 'redux';
  const initalMoviesState={
      list:[],
      favourities:[],
@@ -57,10 +57,14 @@ const initalSearchState={
    movies:initalMoviesState,
    search:initalSearchState
  }
- export default function rootReducer(state,action)
- {
-   return {
-     movies:movies(state.movies,action),
-     search:search(state.search,action)
-   }
- }
+//  export default function rootReducer(state=initalRootState,action)
+//  {
+//    return {
+//      movies:movies(state.movies,action),
+//      search:search(state.search,action)
+//    }
+//  }
+ export default combineReducers({
+   movies,
+   search
+ })
